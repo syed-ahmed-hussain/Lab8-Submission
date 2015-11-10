@@ -1,0 +1,457 @@
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+<header>COPYRIGHT LAB-8 2015: Proudly powered by Syed Ahmed Hussain</header>
+<div class="container">
+
+<div id = "sidebar-div" class="col-3">
+
+<div id = "initial">
+<br/><br/>
+<a id = "create-form" href='#' onclick ='CreateForm()'>Create Form</a>
+</div><br/>
+
+<div id = "options">
+<h2 id ="selectformoptions">&nbsp;&nbsp;&nbsp;&nbsp;Add features to your form</h2>
+
+<ul>
+	<li><a id = "create-inputtext" href='#' onclick ='CreateTextInput()'>Text Input</a></li>
+	<li><a id = "create-email" href='#' onclick ='CreateEmailInput()'>Email Input</a></li>
+	<li><a id = "create-password"  href='#' onclick ='CreatePasswordInput()'>Password Input</a></li>
+	<li><a id = "create-textarea" href='#' onclick ='CreateTextArea()'>Text Area</a></li>
+	<li><a id = "create-number" href='#' onclick ='CreateNumberInput()'>Number Input</a></li>
+	<li><a id = "create-radio" href='#' onclick ='CreateRadioButtons()'>Radio Button</a></li>
+	<li><a id = "create-select" href='#' onclick ='CreateSelectList()'>Drop-Down List</a></li>
+	<li><a id = "create-datalist" href='#' onclick ='CreateDataList()'>Data List</a></li>
+	<li><a id = "create-keygen" href='#' onclick ='CreateKeygen()'>Keygen</a></li>
+	<li><a id = "create-submit" href='#' onclick ='CreateSubmitButton()'>Submit Button</a></li>
+</ul> 
+</div><br/>
+
+<div id = "result">
+</div>
+
+</div>
+
+<div id = "form-div" class="col-9">
+</div>
+
+</div>
+
+<script>
+
+function CreateForm() {
+		var result = prompt("Enter Form Name", "");
+		
+		var head = document.createElement('H1'); 
+		var t = document.createTextNode(result);     
+		head.appendChild(t);
+		head.style.textAlign = "center";
+
+		var form = document.createElement('form'); 
+		form.id = "form";
+		form.name = result;
+		form.appendChild(head);
+		form.innerHTML += "<br/>";
+		
+		var formdiv = document.getElementById("form-div");
+		formdiv.appendChild(form);
+		
+		var initial = document.getElementById("initial");
+		initial.style.display = "none";
+		
+		var options = document.getElementById("options");
+		options.style.display = "block";
+}
+
+function CreateTextInput(){
+		var result = prompt("Enter Field Name", "");
+		
+		var label = document.createElement('label');
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		
+		var maxlength = prompt("Enter Field Length", "");
+		
+		var x;
+		if (confirm("Can we make this field a required field?") == true) {
+			x = true;
+		} else {
+			x = false;
+		}
+		
+		var create = document.createElement('input');
+		create.type = "text";
+		create.id = result + "field";
+		create.name = result;
+		create.maxLength = maxlength;
+		create.required = x;
+		
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+}
+
+function CreateTextArea(){
+		var result = prompt("Enter Field Name", "");
+	
+		var label = document.createElement('label');
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		
+		var maxlength = prompt("Enter Field Length", "");
+		
+		var x;
+		if (confirm("Can we make this field a required field?") == true) {
+			x = true;
+		} else {
+			x = false;
+		}
+				
+		var create = document.createElement('textarea');
+		create.id = result + "field";
+		create.name = result;
+		create.required = x;
+		create.maxLength = maxlength;
+
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+}
+
+function CreateEmailInput(){
+		var result = prompt("Enter Field Name", "");
+		
+		var label = document.createElement('label');
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + "label";
+		
+		var maxlength = prompt("Enter Field Length", "");
+		
+		var x;
+		if (confirm("Can we make this field a required field?") == true) {
+			x = true;
+		} else {
+			x = false;
+		}
+
+		var create = document.createElement('input'); 
+		create.type = "email";
+		create.id = result + "field";
+		create.name = result;
+		create.required = x;
+		create.maxLength = maxlength;
+		
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+}
+
+function CreatePasswordInput(){
+		var result = prompt("Enter Field Name", "");
+		
+		var label = document.createElement('label');
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + "label";
+		
+		var maxlength = prompt("Enter Field Length", "");
+		
+		var x;
+		if (confirm("Can we make this field a required field?") == true) {
+			x = true;
+		} else {
+			x = false;
+		}
+		
+		var create = document.createElement('input'); 
+		create.type = "password";
+		create.id = result + "field";
+		create.name = result;
+		create.required = x;
+		create.maxLength = maxlength;
+		
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+}
+
+function CreateNumberInput(){
+		var result = prompt("Enter Field Name", "");
+		
+		var label = document.createElement('label');
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		
+		var max = prompt("Enter Maximum Limit", "");
+		var min = prompt("Enter Minimum Limit", "");
+		var x;
+		if (confirm("Can we make this field a required field?") == true) {
+			x = true;
+		} else {
+			x = false;
+		}
+		
+		var create = document.createElement('input'); 
+		create.type = "number";
+		create.id = result + "field";
+		create.name = result;
+		create.max = max;
+		create.min = min;
+		create.required = x;
+		
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+}
+
+function CreateRadioButtons(){
+		var result = prompt("Enter Field Name", "");
+		
+		var label = document.createElement('label');
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		
+		
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		
+		var x;
+		if (confirm("Can we make this field a required field?") == true) {
+			x = true;
+		} else {
+			x = false;
+		}
+		
+		var number = prompt("Enter Number of Radio Options", "");
+		var limit = parseInt(number);
+		
+		for(var i = 0; i < limit; i++){
+			var rlabel = document.createElement('label');
+			var rresult = prompt("Enter Radio Option", "");
+			rlabel.innerHTML = rresult;
+			
+			var create = document.createElement('input');
+			create.type = "radio";
+			create.id = result + "field";
+			create.name = result;
+			create.value = rresult;
+			create.required = x;
+			create.maxLength = limit;
+			 
+			form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+			form.appendChild(create);
+			form.appendChild(rlabel);
+		}
+		
+		form.innerHTML += "<br/><br/>";
+   }
+   
+function CreateSelectList(){
+		var result = prompt("Enter List Name", "");
+		
+		var label = document.createElement('label');
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		
+		var x;
+		if (confirm("Can we make this field a required field?") == true) {
+			x = true;
+		} else {
+			x = false;
+		}
+	
+		var list = document.createElement('select'); 
+		list.id = result + "select";
+		list.name = result;
+		list.required = x;
+	
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(list);
+		
+		var number = prompt("Enter Number of List Options", "");
+		var limit = parseInt(number);
+	
+		for(var i = 1; i <= limit; i++){
+			var result = prompt("Enter Option " + i , "");
+			var create = document.createElement('option');
+			create.text = result;
+			create.id = result + "field";
+			create.name = result;
+			list.add(create);
+		}
+
+		form.innerHTML += "<br/><br/>";
+   }
+   
+function CreateDataList(){
+		var result = prompt("Enter List Name", "");
+		
+		var label = document.createElement('label');
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		
+		var x;
+		if (confirm("Can we make this field a required field?") == true) {
+			x = true;
+		} else {
+			x = false;
+		}
+		
+		var list = document.createElement('datalist'); 
+		list.id = result + "datalist";
+		list.name = result;
+		list.required = x;
+		
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.innerHTML += '<input list="'+ list.id  + '" name="'+ list.name + '">';
+		form.appendChild(list);
+		
+		var number = prompt("Enter Number of List Options", "");
+		var limit = parseInt(number);
+		var str  = "";
+	
+		for(var i = 1; i <= limit; i++){
+			var result = prompt("Enter Option " + i , "");
+			str += '<option value="'+result+'">'+result+ '</option>' ;
+		}
+		list.innerHTML = str;
+		form.innerHTML += "<br/><br/>";
+	}
+   
+function CreateKeygen(){
+        var result = prompt("Enter Field Name", "");
+		
+		var label = document.createElement('label');
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		
+		var create = document.createElement('keygen');
+		create.type = "text";
+		create.id = result + "field";
+		create.name = result;
+		create.required = true;
+		
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+	}
+   
+function CreateSubmitButton(){
+        var result = prompt("Enter text for button", "");
+		
+		var create = document.createElement('button');
+		create.type = "submit";
+		create.id = "submit";
+		create.name = result;
+		var t = document.createTextNode("" + result);      
+		create.appendChild(t);
+		
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+		
+		document.getElementById("" + create.id ).addEventListener("click", function() {
+			ProduceJSON();
+		});
+		
+}
+
+function ProduceJSON() {
+
+	var length = document.getElementById("form").elements.length;
+    var json = '{"form":[';
+	for(var i = 0; i < length; i++){
+		var field = document.getElementById("form").elements[i];
+		if(i == length-1){
+			json += '{"Name":"' + field.name + '","Type":"' + field.type + '","Required":"' + field.required + '","MaxLength":"' + field.maxLength + '","Value":"' + field.value + '"}';
+		}
+		else{
+			json += '{"Name":"' + field.name + '","Type":"' + field.type + '","Required":"' + field.required + '","MaxLength":"' + field.maxLength + '","Value":"' + field.value + '"},';
+		}
+		
+	}
+	json += ']}';
+	
+	UpdateLocalData(json);
+	
+	var done = GetLocalData();
+}
+
+var UpdateLocalData = function(data){
+	
+		localStorage.setItem('form', data);
+
+}
+
+var GetLocalData = function(){
+
+		var formData = JSON.parse(localStorage.getItem('form'));
+			if(formData !== null){
+				return BuildForm(formData);
+			}	
+}
+
+var BuildForm = function(formData){
+	
+	for(var i = 0; i < formData.form.length ;i++){
+		document.getElementById("result").innerHTML += formData.form[i].Name + " " + formData.form[i].Type + " " + formData.form[i].Required + " " + formData.form[i].MaxLength + " " + formData.form[i].Value;
+		document.getElementById("result").innerHTML += "<br/><br/>"
+	}
+	
+	//rebuild form here	
+	return true;
+}
+
+</script>
+
+</body>
+
+</html>
